@@ -1,0 +1,14 @@
+galaxy_info:
+  author: digimokan
+  description: "Install and configure video card drivers"
+  license: "MIT"
+  min_ansible_version: 2.3
+  platforms:
+    - name: Archlinux
+      versions:
+        - all
+  galaxy_tags:
+    - archlinux
+    - graphics
+    - video_card
+
