@@ -1,0 +1,4 @@
+- name: "Configure Intel video card drivers"
+  ansible.builtin.include_tasks: intel.yml
+  when: video_card_make == "Intel"
+

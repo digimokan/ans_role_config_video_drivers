@@ -1,0 +1,20 @@
+- name: "Abort if video_card_make not 'Intel' or 'AMD'"
+  ansible.builtin.fail:
+    msg: "video_card_make var must be 'Intel' or 'AMD'"
+  when: (video_card_make != 'Intel') and
+        (video_card_make != 'AMD')
+
+- name: "Abort if Intel video_card_series not 'GMA' or 'HD'"
+  ansible.builtin.fail:
+    msg: "Intel video_card_series var must be 'GMA' or 'HD'"
+  when: (video_card_make == 'Intel') and
+        (video_card_series != 'GMA') and
+        (video_card_series != 'HD')
+
+- name: "Abort if AMD video_card_series not 'GCN_1_2' or 'GCN_3_4_5_RDNA'"
+  ansible.builtin.fail:
+    msg: "AMD video_card_series var must be 'GCN_1_2' or 'GCN_3_4_5_RDNA'"
+  when: (video_card_make == 'AMD') and
+        (video_card_series != 'GCN_1_2') and
+        (video_card_series != 'GCN_3_4_5_RDNA')
+
