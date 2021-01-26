@@ -2,3 +2,7 @@
   ansible.builtin.include_tasks: intel.yml
   when: video_card_make == "Intel"
 
+- name: "Configure AMD video card drivers"
+  ansible.builtin.include_tasks: amd.yml
+  when: video_card_make == "AMD"
+

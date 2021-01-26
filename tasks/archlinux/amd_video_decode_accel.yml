@@ -1,0 +1,12 @@
+# See ArchWiki instructions for AMD video-decode accel driver types:
+#   https://wiki.archlinux.org/index.php/AMDGPU#Installation
+
+- name: "Install AMD video card drivers for video encode/decode accel"
+  community.general.pacman:
+    name:
+      - libva-mesa-driver
+      - mesa-vdpau
+    state: present
+  become: true
+  become_user: root
+

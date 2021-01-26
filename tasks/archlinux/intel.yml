@@ -2,14 +2,14 @@
 #   https://wiki.archlinux.org/index.php/Intel_graphics#Installation
 #   https://wiki.archlinux.org/index.php/Xorg#Driver_installation
 
-- name: "Install main video card driver for Xorg 2D acceleration"
+- name: "Install main Intel video card driver for Xorg 2D acceleration"
   community.general.pacman:
     name: xf86-video-intel
     state: present
   become: true
   become_user: root
 
-- name: "Install video card driver for OpenGL 3D acceleration"
+- name: "Install Intel video card driver for OpenGL 3D acceleration"
   community.general.pacman:
     name: mesa
     state: present
@@ -17,7 +17,7 @@
   become_user: root
   when: config_opengl_3d_accel
 
-- name: "Install video card driver for vulkan support"
+- name: "Install Intel video card driver for Vulkan support"
   community.general.pacman:
     name: vulkan-intel
     state: present
@@ -25,7 +25,7 @@
   become_user: root
   when: config_vulkan
 
-- name: "Configure Intel video card drivers"
+- name: "Configure Intel video encode/decode acceleration"
   ansible.builtin.include_tasks: intel_video_decode_accel.yml
   when: config_video_decode_accel
 

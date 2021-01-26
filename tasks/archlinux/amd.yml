@@ -1,0 +1,43 @@
+# See ArchWiki instructions for AMD 2D/3D/Vulkan driver types:
+#   https://wiki.archlinux.org/index.php/Xorg#Driver_installation
+#   https://wiki.archlinux.org/index.php/Xorg#AMD
+#   https://wiki.archlinux.org/index.php/AMDGPU#Installation
+#   https://wiki.archlinux.org/index.php/ATI#Installation
+
+- name: "Install main AMD ATI video card driver for Xorg 2D acceleration"
+  community.general.pacman:
+    name: xf86-video-ati
+    state: present
+  become: true
+  become_user: root
+  when: video_card_series == "GCN_1_2"
+
+- name: "Install main AMD AMDGPU video card driver for Xorg 2D acceleration"
+  community.general.pacman:
+    name: xf86-video-amdgpu
+    state: present
+  become: true
+  become_user: root
+  when: video_card_series == "GCN_3_4_5_RDNA"
+
+- name: "Install AMD video card driver for OpenGL 3D acceleration"
+  community.general.pacman:
+    name: mesa
+    state: present
+  become: true
+  become_user: root
+  when: config_opengl_3d_accel
+
+- name: "Install AMD AMDGPU video card driver for Vulkan support"
+  # NOTE: AMD GCN_1_2 series cards have no driver support for Vulkan
+  community.general.pacman:
+    name: vulkan-radeon
+    state: present
+  become: true
+  become_user: root
+  when: config_vulkan and (video_card_series == 'GCN_3_4_5_RDNA')
+
+- name: "Configure AMD video encode/decode acceleration"
+  ansible.builtin.include_tasks: amd_video_decode_accel.yml
+  when: config_video_decode_accel
+
