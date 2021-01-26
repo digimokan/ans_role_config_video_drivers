@@ -1,0 +1,9 @@
+# Install and configure OpenGL 2D video acceleration
+config_opengl_2d_accel: true
+
+# Install and configure video encode/decode hardware acceleration
+config_video_decode_accel: true
+
+# Install and configure vulkan video drivers
+config_vulkan: true
+

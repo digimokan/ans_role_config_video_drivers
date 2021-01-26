@@ -56,9 +56,6 @@ Install and configure video card drivers.
          vars:
            video_card_make: "Intel"
            video_card_series: "HD"
-           config_opengl_2d_accel: true
-           config_video_decode_accel: true
-           config_vulkan: true
    ```
 
 ## Role Options
@@ -72,7 +69,7 @@ Define these _required_ vars for the role:
   * `video_card_make`: either "Intel" or "AMD"
   * `video_card_series`:
       * For Intel, either "GMA" or "HD"
-      * For AMD, either 
+      * For AMD, either "GCN_1_2" or "GCN_3_4_5_RDNA"
 
 ## Contributing
 
