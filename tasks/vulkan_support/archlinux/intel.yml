@@ -1,0 +1,10 @@
+# See ArchWiki instructions for Intel Vulkan support:
+#   https://wiki.archlinux.org/index.php/Intel_graphics#Installation
+
+- name: "Install Intel video card driver for Vulkan support"
+  community.general.pacman:
+    name: vulkan-intel
+    state: present
+  become: true
+  become_user: root
+

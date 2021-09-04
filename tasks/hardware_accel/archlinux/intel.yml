@@ -1,5 +1,6 @@
-# See ArchWiki instructions for Intel 2D/3D/Vulkan driver types:
+# See ArchWiki instructions for Intel 2D/3D hardware acceleration:
 #   https://wiki.archlinux.org/index.php/Intel_graphics#Installation
+#   https://wiki.archlinux.org/index.php/Hardware_video_acceleration#Intel
 #   https://wiki.archlinux.org/index.php/Xorg#Driver_installation
 
 - name: "Install main Intel video card driver for Xorg 2D acceleration"
@@ -15,17 +16,20 @@
     state: present
   become: true
   become_user: root
-  when: config_opengl_3d_accel
 
-- name: "Install Intel video card driver for Vulkan support"
+- name: "Install Intel HD-series video card driver for video encode/decode accel"
   community.general.pacman:
-    name: vulkan-intel
+    name: intel-media-driver
     state: present
   become: true
   become_user: root
-  when: config_vulkan
+  when: video_card_series == 'HD'
 
-- name: "Configure Intel video encode/decode acceleration"
-  ansible.builtin.include_tasks: intel_video_decode_accel.yml
-  when: config_video_decode_accel
+- name: "Install Intel GMA-series video card driver for video encode/decode accel"
+  community.general.pacman:
+    name: libva-intel-driver
+    state: present
+  become: true
+  become_user: root
+  when: video_card_series == 'GMA'
 

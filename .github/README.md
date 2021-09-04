@@ -17,8 +17,8 @@ Install and configure video card drivers.
 ## Purpose
 
 * Install and configure video card drivers for Intel and AMD cards.
-* Optionally configure OpenGL 2D Acceleration, Video-Decode Acceleration, and
-  Vulkan.
+* Enable OpenGL 2D/3D-Acceleration and Video-Encode-Decode-Acceleration.
+* Optionally enable Vulkan support.
 
 ## Supported Operating Systems
 

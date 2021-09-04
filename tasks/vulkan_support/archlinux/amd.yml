@@ -1,0 +1,12 @@
+# See ArchWiki instructions for AMD Vulkan support:
+#   https://wiki.archlinux.org/index.php/AMDGPU#Installation
+
+- name: "Install AMD AMDGPU video card driver for Vulkan support"
+  # NOTE: AMD GCN_1_2 series cards have no driver support for Vulkan
+  community.general.pacman:
+    name: vulkan-radeon
+    state: present
+  become: true
+  become_user: root
+  when: video_card_series == 'GCN_3_4_5_RDNA'
+

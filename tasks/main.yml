@@ -1,7 +1,10 @@
 - name: "Check that correct video card make and series has been defined"
-  ansible.builtin.include_tasks: make_series_chk.yml
+  ansible.builtin.include_tasks: make_series_chk/main.yml
 
-- name: "Configure video card drivers for Arch Linux"
-  ansible.builtin.include_tasks: archlinux/main.yml
-  when: ansible_os_family == "Archlinux"
+- name: "Configure video card 2D/3D and encode/decode hardware acceleration"
+  ansible.builtin.include_tasks: hardware_accel/main.yml
+
+- name: "Configure video card vulkan_support"
+  ansible.builtin.include_tasks: vulkan_support/main.yml
+  when config_vulkan_support
 
