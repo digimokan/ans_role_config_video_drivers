@@ -66,10 +66,14 @@ See the role `defaults` file, for overridable vars:
 
 Define these _required_ vars for the role:
 
-  * `video_card_make`: either "Intel" or "AMD"
+  * `video_card_make`: either `Intel` or `AMD`
   * `video_card_series`:
-      * For Intel, either "GMA" or "HD"
-      * For AMD, either "GCN_1_2" or "GCN_3_4_5_RDNA"
+      * For [Intel](https://wiki.archlinux.org/title/Hardware_video_acceleration#Intel):
+          * Set `GMA` for most _GMA_ cards
+          * Set `HD` for _Broadwell_ cards
+      * For [AMD](https://wiki.archlinux.org/title/Xorg#AMD)
+          * Set `GCN_1_2` for the older _ATI_ / _Radeon_ cards
+          * Set `GCN_3_4_5_RDNA` for the newer _AMDGPU_ cards
 
 ## Contributing
 
