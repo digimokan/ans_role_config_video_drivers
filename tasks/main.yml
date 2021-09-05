@@ -6,5 +6,5 @@
 
 - name: "Configure video card vulkan_support"
   ansible.builtin.include_tasks: vulkan_support/main.yml
-  when config_vulkan_support
+  when: config_vulkan_support
 
