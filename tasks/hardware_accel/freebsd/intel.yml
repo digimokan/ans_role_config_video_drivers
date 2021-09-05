@@ -1,0 +1,11 @@
+- name: "Set Intel '{{ driver_file }}' driver to load on startup in {{ rc_conf_filepath }}"
+  community.general.sysrc:
+    path: "{{ rc_conf_filepath }}"
+    name: "kld_list"
+    value: "/boot/modules/{{ driver_file }}.ko"
+    state: present
+  vars:
+    driver_file: "i915kms"
+  become: true
+  become_user: root
+

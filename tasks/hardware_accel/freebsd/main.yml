@@ -1,0 +1,21 @@
+- name: "Install 'drm-kmod' package, which contains both Intel and AMD drivers"
+  ansible.builtin.package:
+    name: 'drm-kmod'
+    state: present
+  become: true
+  become_user: root
+
+- name: "Configure Intel video card hardware acceleration"
+  ansible.builtin.include_tasks: intel.yml
+  when: video_card_make == "Intel"
+
+- name: "Configure AMD video card hardware acceleration"
+  ansible.builtin.include_tasks: amd.yml
+  when: video_card_make == "AMD"
+
+- name: "Add user '{{ user_name }}' to group 'video'"
+  ansible.builtin.include_role:
+    name: ans_role_add_user
+  vars:
+    user_groups: "video"
+
