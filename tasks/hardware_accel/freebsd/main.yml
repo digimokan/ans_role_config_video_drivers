@@ -1,3 +1,9 @@
+# See FreeBSD Handbook instructions:
+#   https://wiki.freebsd.org/Graphics#Hardware_Support
+# Also supplementary instructions here:
+#   https://docs.freebsd.org/en/books/handbook/x11/#x-install
+#   https://freebsddesktop.github.io/2019/03/11/xorg-quickstart.html
+
 - name: "Install 'drm-kmod' package, which contains both Intel and AMD drivers"
   ansible.builtin.package:
     name: 'drm-kmod'
