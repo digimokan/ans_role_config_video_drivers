@@ -1,4 +1,5 @@
 - name: "Set Intel '{{ driver_file }}' driver to load on startup in {{ rc_conf_filepath }}"
+  # Check if drm-kmod properly loaded at boot with 'dmesg | grep drm'
   community.general.sysrc:
     path: "{{ rc_conf_filepath }}"
     name: "kld_list"
@@ -6,6 +7,15 @@
     state: present
   vars:
     driver_file: "i915kms"
+  become: true
+  become_user: root
+
+# Required for many Intel graphics cards, per guidance here:
+#   https://forums.FreeBSD.org/threads/startx-not-coming-up.61320/post-368542
+- name: "Install 'xf86-video-intel' package (required for many Intel cards)"
+  ansible.builtin.package:
+    name: 'xf86-video-intel'
+    state: present
   become: true
   become_user: root
 
