@@ -24,6 +24,7 @@ Install and configure video card drivers.
 ## Supported Operating Systems
 
 * Arch Linux.
+* FreeBSD.
 
 ## Quick Start
 
