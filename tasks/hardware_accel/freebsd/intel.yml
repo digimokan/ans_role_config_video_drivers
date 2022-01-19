@@ -10,12 +10,3 @@
   become: true
   become_user: root
 
-# Required for many Intel graphics cards, per guidance here:
-#   https://forums.FreeBSD.org/threads/startx-not-coming-up.61320/post-368542
-- name: "Install 'xf86-video-intel' package (required for many Intel cards)"
-  ansible.builtin.package:
-    name: 'xf86-video-intel'
-    state: present
-  become: true
-  become_user: root
-
