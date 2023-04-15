@@ -12,7 +12,6 @@ Install and configure video card drivers.
 * [Quick Start](#quick-start)
     * [Use From Playbook](#use-from-playbook)
 * [Role Options](#role-options)
-* [Role Dependencies](#role-dependencies)
 * [Contributing](#contributing)
 
 ## Purpose
@@ -68,7 +67,6 @@ See the role `defaults` file, for overridable vars:
 
 Define these _required_ vars for the role:
 
-  * `user_name`: main user of video drivers in a graphical environment
   * `video_card_make`: either `Intel` or `AMD`
   * `video_card_series`:
       * For [Intel](https://wiki.archlinux.org/title/Hardware_video_acceleration#Intel):
@@ -77,10 +75,6 @@ Define these _required_ vars for the role:
       * For [AMD](https://wiki.archlinux.org/title/Xorg#AMD)
           * Set `GCN_1_2` for the older _ATI_ / _Radeon_ cards
           * Set `GCN_3_4_5_RDNA` for the newer _AMDGPU_ cards
-
-## Role Dependencies
-
-* [ans_role_add_user](https://github.com/digimokan/ans_role_add_user)
 
 ## Contributing
 
