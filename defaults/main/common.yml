@@ -1,3 +1,6 @@
+# video group created by running this role (users must belong to this group)
+video_group_name: 'video'
+
 # Install and configure Vulkan video drivers
 config_vulkan_support: false
 
