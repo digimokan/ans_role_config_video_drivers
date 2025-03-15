@@ -16,12 +16,10 @@
   become: true
   become_user: root
 
-# Note: polaris10 is specific to AMD RX 580
-- name: "Build and install 'gpu-firmware-amd-kmod-polaris10' package from source, to resolve FreeBSD 14.2 bug"
-  community.general.portinstall:
-    name: 'gpu-firmware-amd-kmod-polaris10'
+- name: "Install 'gpu-firmware-kmod' package (graphics card drivers), to resolve FreeBSD 14.2 bug"
+  ansible.builtin.package:
+    name: 'gpu-firmware-kmod'
     state: present
-    use_packages: false
   become: true
   become_user: root
 
