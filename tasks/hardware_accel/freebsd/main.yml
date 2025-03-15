@@ -8,9 +8,9 @@
 #       Per release errata, solution is to build manually.
 # Ref:  https://www.freebsd.org/releases/14.2R/errata/#open-issues
 # - name: "Install 'drm-kmod' package, which contains both Intel and AMD drivers"
-- name: "Build and install 'graphics/drm-61-kmod' package from source, to resolve FreeBSD 14.2 bug"
+- name: "Build and install 'graphics/drm-kmod' package from source, to resolve FreeBSD 14.2 bug"
   community.general.portinstall:
-    name: 'graphics/drm-61-kmod'
+    name: 'graphics/drm-kmod'
     state: present
     use_packages: false
   become: true
