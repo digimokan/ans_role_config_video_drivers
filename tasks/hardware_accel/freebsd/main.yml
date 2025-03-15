@@ -4,10 +4,15 @@
 #   https://docs.freebsd.org/en/books/handbook/x11/#x-install
 #   https://freebsddesktop.github.io/2019/03/11/xorg-quickstart.html
 
-- name: "Install 'drm-kmod' package, which contains both Intel and AMD drivers"
-  ansible.builtin.package:
+# Note: Workaround for FreeBSD 14.2 failure to wire up drm-kmod packages.
+#       Per release errata, solution is to build manually.
+# Ref:  https://www.freebsd.org/releases/14.2R/errata/#open-issues
+# - name: "Install 'drm-kmod' package, which contains both Intel and AMD drivers"
+- name: "Build and install 'drm-kmod' package from source, to resolve FreeBSD 14.2 bug"
+  community.general.portinstall:
     name: 'drm-kmod'
     state: present
+    use_packages: false
   become: true
   become_user: root
 
