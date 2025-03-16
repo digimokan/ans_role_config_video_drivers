@@ -4,6 +4,13 @@
 #   https://docs.freebsd.org/en/books/handbook/x11/#x-install
 #   https://freebsddesktop.github.io/2019/03/11/xorg-quickstart.html
 
+- name: "Install 'gpu-firmware-kmod' package (collection of AMD/Nvidia/Intel card firmwares)"
+  ansible.builtin.package:
+    name: 'gpu-firmware-kmod'
+    state: present
+  become: true
+  become_user: root
+
 # Note: Workaround for FreeBSD 14.2 failure to wire up drm-kmod packages.
 #       Per release errata, solution is to build manually.
 # Ref:  https://www.freebsd.org/releases/14.2R/errata/#open-issues
@@ -13,13 +20,6 @@
     name: 'graphics/drm-61-kmod'
     state: present
     use_packages: false
-  become: true
-  become_user: root
-
-- name: "Install 'gpu-firmware-kmod' package (graphics card drivers), to resolve FreeBSD 14.2 bug"
-  ansible.builtin.package:
-    name: 'gpu-firmware-kmod'
-    state: present
   become: true
   become_user: root
 
