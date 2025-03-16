@@ -3,7 +3,7 @@
   community.general.sysrc:
     path: "{{ rc_conf_filepath }}"
     name: "kld_list"
-    value: "/boot/modules/{{ driver_file }}.ko"
+    value: "{{ driver_file }}"
     state: present
   vars:
     driver_file: "{{ 'radeonkms' if (video_card_series == 'GCN_1_2') else 'amdgpu' }}"
