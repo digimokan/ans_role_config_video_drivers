@@ -3,8 +3,8 @@
   community.general.sysrc:
     path: "{{ rc_conf_filepath }}"
     name: "kld_list"
-    value_present: "{{ driver_file }}"
-    state: present
+    value: "{{ driver_file }}"
+    state: value_present
   vars:
     driver_file: "i915kms"
   become: true
