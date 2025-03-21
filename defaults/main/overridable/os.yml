@@ -1,3 +1,3 @@
 # config file for host info, network info, and services to start at boot
-rc_conf_filepath: "/etc/rc.conf"
+cfg_video_freebsd_rc_conf_filepath: "/etc/rc.conf"
 

@@ -10,7 +10,7 @@
     state: present
   become: true
   become_user: root
-  when: video_card_series == "GCN_1_2"
+  when: cfg_video_card_series == "GCN_1_2"
 
 - name: "Install main AMD AMDGPU video card driver for Xorg 2D acceleration"
   community.general.pacman:
@@ -18,7 +18,7 @@
     state: present
   become: true
   become_user: root
-  when: video_card_series == "GCN_3_4_5_RDNA"
+  when: cfg_video_card_series == "GCN_3_4_5_RDNA"
 
 - name: "Install AMD video card driver for OpenGL 3D acceleration"
   community.general.pacman:

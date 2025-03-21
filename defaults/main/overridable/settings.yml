@@ -1,0 +1,3 @@
+# Install and configure Vulkan video drivers
+cfg_video_vulkan_support: false
+

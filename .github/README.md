@@ -55,26 +55,24 @@ Install and configure video card drivers.
          ansible.builtin.include_role:
            name: ans_role_config_video_drivers
          vars:
-           video_card_make: "Intel"
-           video_card_series: "HD"
+           cfg_video_card_make: "Intel"
+           cfg_video_card_series: "HD"
    ```
 
 ## Role Options
 
-See the role `defaults` file, for overridable vars:
+Vars that must be defined when including the role in the playbook:
 
-  * [defaults/main.yml](../defaults/main.yml)
+  * [dependencies](../defaults/main/dependencies/main.yml)
 
-Define these _required_ vars for the role:
+Vars with default values, which can be overridden in the playbook:
 
-  * `video_card_make`: either `Intel` or `AMD`
-  * `video_card_series`:
-      * For [Intel](https://wiki.archlinux.org/title/Hardware_video_acceleration#Intel):
-          * Set `GMA` for most _GMA_ cards
-          * Set `HD` for _Broadwell_ cards
-      * For [AMD](https://wiki.archlinux.org/title/Xorg#AMD)
-          * Set `GCN_1_2` for the older _ATI_ / _Radeon_ cards
-          * Set `GCN_3_4_5_RDNA` for the newer _AMDGPU_ cards
+  * [overridable](../defaults/main/overridable)
+
+Vars defined by this role, exported with `public: true`, for use in other roles:
+
+  * [export vars](../defaults/main/export/main.yml)
+  * [export tasks](../tasks/export_vars/main.yml)
 
 ## Contributing
 

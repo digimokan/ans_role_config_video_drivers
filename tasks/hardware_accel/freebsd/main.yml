@@ -25,9 +25,9 @@
 
 - name: "Configure Intel video card hardware acceleration"
   ansible.builtin.include_tasks: intel.yml
-  when: video_card_make == "Intel"
+  when: cfg_video_card_make == "Intel"
 
 - name: "Configure AMD video card hardware acceleration"
   ansible.builtin.include_tasks: amd.yml
-  when: video_card_make == "AMD"
+  when: cfg_video_card_make == "AMD"
 

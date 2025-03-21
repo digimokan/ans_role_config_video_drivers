@@ -1,0 +1,3 @@
+# video group name (export for external roles, for creating this group)
+cfg_video_group_name: 'video'
+

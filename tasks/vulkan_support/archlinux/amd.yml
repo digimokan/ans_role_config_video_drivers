@@ -8,5 +8,5 @@
     state: present
   become: true
   become_user: root
-  when: video_card_series == 'GCN_3_4_5_RDNA'
+  when: cfg_video_card_series == 'GCN_3_4_5_RDNA'
 

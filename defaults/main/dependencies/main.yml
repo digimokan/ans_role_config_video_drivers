@@ -1,0 +1,15 @@
+# card make: either 'Intel' or 'AMD' (Nvidia currently not supported)
+cfg_video_card_make: "none"
+
+# card model/series
+# For Intel:
+#   * Set "GMA" for most GMA cards
+#   * Set "HD" for Broadwell cards
+# For AMD:
+#   * Set "GCN_1_2" for the older ATI / Radeon cards
+#   * Set "GCN_3_4_5_RDNA" for the newer AMDGPU cards
+# Refs:
+#   https://wiki.archlinux.org/title/Hardware_video_acceleration#Intel
+#   https://wiki.archlinux.org/title/Xorg#AMD
+cfg_video_card_series: "none"
+
