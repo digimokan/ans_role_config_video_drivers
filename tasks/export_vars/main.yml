@@ -1,4 +1,8 @@
-# - name: "Define export var 'xorg_user_xinitrc_path'"
-#   ansible.builtin.set_fact:
-#     xorg_user_xinitrc_path: "/home/{{ xorg_user_name }}/.xinitrc"
+# Note: Workaround for FreeBSD 14.2 failure to wire up drm-kmod packages.
+#       Per release errata, solution is to build manually.
+# Ref:  https://www.freebsd.org/releases/14.2R/errata/#open-issues
+- name: "Define export var 'cfg_video_freebsd_drm_pkg_port_name'"
+  ansible.builtin.set_fact:
+    cfg_video_freebsd_drm_pkg_port_name: "graphics/drm-61-kmod"
+  when: cfg_video_freebsd_build_drm_pkg_from_ports
 

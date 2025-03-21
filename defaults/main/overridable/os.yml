@@ -1,3 +1,6 @@
 # config file for host info, network info, and services to start at boot
 cfg_video_freebsd_rc_conf_filepath: "/etc/rc.conf"
 
+# build the FreeBSD drm-kmod package from the ports tree
+cfg_video_freebsd_build_drm_pkg_from_ports: false
+

@@ -1,6 +1,9 @@
 - name: "Check that correct video card make and series has been defined"
   ansible.builtin.include_tasks: make_series_chk/main.yml
 
+- name: "Export vars for other roles"
+  ansible.builtin.include_tasks: export_vars/main.yml
+
 - name: "Configure video card 2D/3D and encode/decode hardware acceleration"
   ansible.builtin.include_tasks: hardware_accel/main.yml
 
